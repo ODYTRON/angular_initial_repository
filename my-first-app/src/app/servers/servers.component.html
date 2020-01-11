@@ -1,2 +1,41 @@
+<h3> Assignment 2 - Data Binding </h3>
+<label>How to update a property via Two-Way-Binding and handle events with buttons</label>
+<!--<input type="text"
+       class="form-control"
+       (input)="onUpdateServerName($event)">-->
+<!--<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="serverName">
+
+<p>{{serverName}}</p>-->
+
+
+<!--property binding in button -->
+<!--<button class="btn btn-primary"
+        [disabled]="!allowNewServer"
+        (click)="onCreateServer()">Add Server</button>-->
+<!--string interpolation -->
+<!--<p>{{ allowNewServer }}</p> -->
+<!-- replace string interpolation with property binding -->
+<!--<p [innerText]= "allowNewServer"></p>-->
+<!--<p>{{serverCreationStatus}}</p>
 <app-server></app-server>
-<app-server></app-server>
+<app-server></app-server>-->
+
+
+<!-- with this input i automatically update the status of the property -->
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="username">
+
+<!-- string interpolation under the field -->
+<p>{{username}}</p>
+
+<!--or username === ''-->
+<button [disabled]="!username"
+        class="btn btn-danger"
+
+        (click)="onResetUserName()">Reset Username</button>
+

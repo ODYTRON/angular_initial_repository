@@ -1,7 +1,8 @@
 // in the first lesson i installed npm install --save bootstrap@3  (localy in this project)
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// import { FormsModule } from '@angular/forms';
+// for two way binding you need the following import
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 // import your first component
 import { ServerComponent } from './server/server.component';
@@ -18,8 +19,9 @@ import { SuccessAlertComponent } from './success-alert/success-alert.component';
     SuccessAlertComponent
   ],
   imports: [
-    BrowserModule
-    // FormsModule
+    BrowserModule,
+    // you also need to put the following for two way binding
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
