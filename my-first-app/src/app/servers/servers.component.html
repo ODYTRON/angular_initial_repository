@@ -1,27 +1,38 @@
-<h3> Assignment 2 - Data Binding </h3>
-<label>How to update a property via Two-Way-Binding and handle events with buttons</label>
+
+<!--<label>How to update a property via Two-Way-Binding and handle events with buttons</label>-->
 <!--<input type="text"
        class="form-control"
        (input)="onUpdateServerName($event)">-->
-<!--<input
+<!--<h3> Assignment 2 - Data Binding </h3>-->
+<label>Server Name</label>
+<input
   type="text"
   class="form-control"
   [(ngModel)]="serverName">
 
-<p>{{serverName}}</p>-->
+<!--<p>{{serverName}}</p>-->
 
 
 <!--property binding in button -->
-<!--<button class="btn btn-primary"
+<button class="btn btn-primary"
         [disabled]="!allowNewServer"
-        (click)="onCreateServer()">Add Server</button>-->
+        (click)="onCreateServer()">Add Server</button>
 <!--string interpolation -->
 <!--<p>{{ allowNewServer }}</p> -->
 <!-- replace string interpolation with property binding -->
 <!--<p [innerText]= "allowNewServer"></p>-->
 <!--<p>{{serverCreationStatus}}</p>
+
 <app-server></app-server>
 <app-server></app-server>-->
+<!--<p *ngIf="serverCreated; else noServer">Server was created, server name is {{serverName}} </p>
+<ng-template #noServer>
+  <p> No server was Created!</p>
+</ng-template>-->
+<p *ngIf="serverCreated">Server was created, server name is {{serverName}} </p>
+
+<app-server *ngFor="let server of servers"></app-server>
+
 
 
 <!-- with this input i automatically update the status of the property -->
@@ -38,4 +49,17 @@
         class="btn btn-danger"
 
         (click)="onResetUserName()">Reset Username.</button>
+<hr>
+<button class="btn btn-danger"
+        (click)="toggleDisplay()">Display Details</button>
+<p *ngIf = "!isShow">secret password' = odytron</p>
+// instead of the array you can set index which holds the current iteration (starts from  zero)
+// at the beginning i iterate the repo var to five now i use index thats why 4
+<div *ngFor="let repo of clicksrepo; let i = index"
+      [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+      [ngClass]="{'white-text': i >= 4}"
+>{{repo}}</div>
+
+
+
 

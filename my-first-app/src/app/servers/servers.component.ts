@@ -9,32 +9,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
   allowNewServer = false;
-  serverCreationStatus = 'No server was created!'
+  serverCreationStatus = 'No server was created!';
   // declare this var for later use in a method
   serverName = 'TestServer';
-  username = ''
+  username = '';
+  serverCreated = false;
+  servers = ['Testserver', 'Testserver 2'];
+  clicksrepo = [];
+  isShow = false;
 
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
-      },2000);
+      }, 2000);
   }
 
   ngOnInit() {
   }
 
   onCreateServer() {
+    this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreationStatus = 'Server was created! Name is' + this.serverName;
   }
   onUpdateServerName(event: any) {
 
     // console.log(event);
     // instead of log this event you can cast an input html element
-    this.serverName = (<HTMLInputElement>event.target).value;
+    this.serverName = (event.target as HTMLInputElement).value;
   }
 
   onResetUserName() {
     this.username = '';
+  }
+
+  toggleDisplay(isShow) {
+    this.isShow = !this.isShow;
+    // this.clicksrepo.push(this.clicksrepo.length + 1);
+    this.clicksrepo.push(new Date());
+
   }
 
 
